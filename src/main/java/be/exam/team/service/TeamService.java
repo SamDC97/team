@@ -6,6 +6,7 @@ import be.exam.team.service.dto.Car;
 import be.exam.team.service.dto.Driver;
 import be.exam.team.service.dto.Team;
 import be.exam.team.service.mapper.TeamMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @Service
+@Slf4j
 public class TeamService {
 
     @Autowired
@@ -44,8 +46,10 @@ public class TeamService {
             team.setCar(getRESTCar(team.getCarId()));
             team.setDriver1(getRESTDriver(team.getDriverId1()));
             team.setDriver2(getRESTDriver(team.getDriverId2()));
+            log.info(team.toString());
             return team;
         }
+        log.info("No team found for id {}.", id);
         return null;
     }
 
@@ -60,6 +64,7 @@ public class TeamService {
             team.setDriver2(getRESTDriver(team.getDriverId2()));
         }
 
+        log.info(teamList.toString());
         return teamList;
     }
 
