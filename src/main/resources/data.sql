@@ -11,4 +11,4 @@ insert into team_entity (id, name, car_id, driver_id1, driver_id2) values
  (7, 'Racing Point', 7, 19, 12),
  (8, 'Red Bull', 8, 14, 2),
  (9, 'Renault', 9, 6, 8),
- (10, 'Williams', 10, 6, 15);
+ (10, 'Williams', 10, 9, 15);

@@ -31,4 +31,9 @@ public class TeamResource {
     public ResponseEntity<Team> getById(@PathVariable Long id){
         return new ResponseEntity<>(teamService.getById(id), HttpStatus.OK);
     }
+
+    @GetMapping("/get-team-by-driver/{id}")
+    public ResponseEntity<Team> getTeamByDriverId(@PathVariable Long id){
+        return new ResponseEntity<>(teamService.getTeamByDriverId(id), HttpStatus.OK);
+    }
 }

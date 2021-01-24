@@ -39,6 +39,17 @@ public class TeamService {
         teamRepository.save(teamMapper.toEntity(team));
     }
 
+    public Team getTeamByDriverId(Long id){
+        List<Team> teams = getAll();
+
+        for (Team team : teams){
+            if (team.getDriverId1() == id || team.getDriverId2() == id){
+                return team;
+            }
+        }
+        return null;
+    }
+
     public Team getById(Long id){
         Optional<TeamEntity> optionalTeamEntity = teamRepository.findById(id);
         if (optionalTeamEntity.isPresent()){
